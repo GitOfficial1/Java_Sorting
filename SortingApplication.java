@@ -39,6 +39,12 @@ public class SortingApplication {
                     mergeSortMenu();
                     break;
                 case 7:
+                    countingSortMenu();
+                    break;
+                case 8:
+                    shellSortMenu();
+                    break;
+                case 9:
                     System.out.println("Выход из программы...");
                     scanner.close();
                     return;
@@ -56,7 +62,9 @@ public class SortingApplication {
         System.out.println("4. Шейкерная сортировка");
         System.out.println("5. Быстрая сортировка");
         System.out.println("6. Сортировка слиянием");
-        System.out.println("7. Выход");
+        System.out.println("7. Сортировка подсчетом");
+        System.out.println("8. Сортировка Шелла");
+        System.out.println("9. Выход");
     }
     
     private void showSortingSubMenu(String sortName) {
@@ -116,6 +124,12 @@ public class SortingApplication {
                         case "Сортировка слиянием":
                             sorter.performMergeSort();
                             break;
+                        case "Сортировка подсчетом":
+                            sorter.performCountingSort();
+                            break;
+                        case "Сортировка Шелла":
+                            sorter.performShellSort();
+                            break;
                     }
                     break;
                 case 8:
@@ -155,6 +169,15 @@ public class SortingApplication {
     private void mergeSortMenu() {
         handleSortingMenu("Сортировка слиянием");
     }
+
+    private void countingSortMenu() {
+    handleSortingMenu("Сортировка подсчетом");
+    }
+
+    private void shellSortMenu() {
+    handleSortingMenu("Сортировка Шелла");
+    }
+
     
     private int getIntInput(String message) {
         while (true) {

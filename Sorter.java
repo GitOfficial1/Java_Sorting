@@ -236,7 +236,55 @@ public class Sorter {
         // Обновляем основной массив
         array = arrayToSort;
     }
-    
+
+    public void performCountingSort() {
+    if (array.length == 0) {
+        System.out.println("Массив пуст. Сначала добавьте элементы.");
+        return;
+    }
+
+    System.out.println("Исходный массив: " + Arrays.toString(array));
+
+    int[] arrayToSort = Arrays.copyOf(array, array.length);
+
+    long startTime = System.nanoTime();
+    countingSort(arrayToSort);
+    long endTime = System.nanoTime();
+
+    long duration = (endTime - startTime);
+
+    System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+    System.out.println("Время сортировки: " + duration + " наносекунд (" +
+            (duration / 1_000_000.0) + " миллисекунд)");
+
+    array = arrayToSort;
+    }
+
+    public void performShellSort() {
+    if (array.length == 0) {
+        System.out.println("Массив пуст. Сначала добавьте элементы.");
+        return;
+    }
+
+    System.out.println("Исходный массив: " + Arrays.toString(array));
+
+    int[] arrayToSort = Arrays.copyOf(array, array.length);
+
+    long startTime = System.nanoTime();
+    shellSort(arrayToSort);
+    long endTime = System.nanoTime();
+
+    long duration = (endTime - startTime);
+
+    System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+    System.out.println("Время сортировки: " + duration + " наносекунд (" +
+            (duration / 1_000_000.0) + " миллисекунд)");
+
+    array = arrayToSort;
+    }
+  
+
+
     private void bubbleSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -414,7 +462,49 @@ void shakerSort(int[] arr) {
         }
     }
     
-    public void deleteArray() {
-        array = new int[0];
+public void deleteArray() {
+    array = new int[0];
+}
+
+private void countingSort(int[] arr) {
+    int min = Arrays.stream(arr).min().orElse(0);
+    int max = Arrays.stream(arr).max().orElse(0);
+
+    int range = max - min + 1;
+    int[] count = new int[range];
+    int[] output = new int[arr.length];
+
+    for (int value : arr) {
+        count[value - min]++;
     }
+
+    for (int i = 1; i < count.length; i++) {
+        count[i] += count[i - 1];
+    }
+
+    for (int i = arr.length - 1; i >= 0; i--) {
+        output[count[arr[i] - min] - 1] = arr[i];
+        count[arr[i] - min]--;
+    }
+
+    System.arraycopy(output, 0, arr, 0, arr.length);
+}
+
+private void shellSort(int[] arr) {
+    int n = arr.length;
+
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; i++) {
+            int temp = arr[i];
+            int j = i;
+
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+            arr[j] = temp;
+        }
+    }
+}
+
 }
