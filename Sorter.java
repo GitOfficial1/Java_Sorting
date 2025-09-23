@@ -285,42 +285,54 @@ public class Sorter {
         }
     }
     
-    private void shakerSort(int[] arr) {
-        int left = 0;
-        int right = arr.length - 1;
-        boolean swapped = true;
-        
-        while (swapped) {
-            swapped = false;
-            
-            // Проход слева направо
-            for (int i = left; i < right; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    int temp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = temp;
-                    swapped = true;
-                }
+void shakerSort(int[] arr) {
+    int min = 0, max = arr.length - 1;
+    while (min < max) {
+        int lastSwap = min - 1;
+
+        // прямой проход
+        int i = min + 1;
+        while (i <= max) {
+            if (arr[i - 1] > arr[i]) {
+                int tmp = arr[i - 1];
+                int j = i;
+                do {
+                    arr[j - 1] = arr[j];
+                    j++;
+                    if (j > max) break;
+                } while (arr[j] < tmp);
+                arr[j - 1] = tmp;
+                lastSwap = j - 1;
+                i = j + 1;
+            } else {
+                i++;
             }
-            
-            if (!swapped) break;
-            
-            right--;
-            swapped = false;
-            
-            // Проход справа налево
-            for (int i = right; i > left; i--) {
-                if (arr[i] < arr[i - 1]) {
-                    int temp = arr[i];
-                    arr[i] = arr[i - 1];
-                    arr[i - 1] = temp;
-                    swapped = true;
-                }
-            }
-            
-            left++;
         }
+        max = lastSwap - 1;
+
+        // обратный проход
+        lastSwap = max + 1;
+        i = max - 1;
+        while (i >= min) {
+            if (arr[i + 1] < arr[i]) {
+                int tmp = arr[i + 1];
+                int j = i;
+                do {
+                    arr[j + 1] = arr[j];
+                    j--;
+                    if (j < min) break;
+                } while (arr[j] > tmp);
+                arr[j + 1] = tmp;
+                lastSwap = j + 1;
+                i = j - 1;
+            } else {
+                i--;
+            }
+        }
+        min = lastSwap + 1;
     }
+}
+
     
     private void quickSort(int[] arr, int low, int high) {
         if (low < high) {
