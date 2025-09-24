@@ -471,21 +471,45 @@ private void countingSort(int[] arr) {
     int max = Arrays.stream(arr).max().orElse(0);
 
     int range = max - min + 1;
-    int[] count = new int[range];
-    int[] output = new int[arr.length];
+    int[] count = new int[range];     // массив, в котором индексы соответствуеют числам (со сдвигом -min), а значения - количеству встречающихся
+    int[] output = new int[arr.length]; // отсортированный массив
 
     for (int value : arr) {
-        count[value - min]++;
+        count[value - min]++;  // пробегаемся по всем элементам массива для создания массива счётчиков
     }
 
-    for (int i = 1; i < count.length; i++) {
+    // Пример:
+
+    // arr = {3, 5, 3, 4}
+    // min = 3
+    // count = new int [5 - 3 + 1]
+    // value = 3 -> count [3 - 3]++ -> count[0] = 1 ...
+    // count = {2, 1, 1}
+
+    for (int i = 1; i < count.length; i++) { // Итоговая позиция элемента в конечном массиве. Начинаем с 1, потому что минимальные уже заполнены
         count[i] += count[i - 1];
     }
 
-    for (int i = arr.length - 1; i >= 0; i--) {
-        output[count[arr[i] - min] - 1] = arr[i];
-        count[arr[i] - min]--;
+    // count = {2, 3, 4}
+
+    for (int i = arr.length - 1; i >= 0; i--) { // Перебираем исходный с конца для устойчивости
+        output[count[arr[i] - min] - 1] = arr[i]; // На какую позицию вставляем в выходной
+        count[arr[i] - min]--; // Уменьшаем значение в count, чтобы копии заняли правильные позиции
     }
+
+    // Пример:
+
+    //  i = 3 -> arr[3] = 4
+    //  count [4 - 3] = count[1] = 3
+    //  count [3 - 1] = output[2] = 4
+    //  count [1]-- -> count = {2, 2, 4}
+
+    //  i = 2 -> arr[2] = 3
+    //  count [3 - 3] = count[0] = 2
+    //  count [2 - 1] = output[1] = 3
+    //  count [0]-- -> count = {1, 2, 4}
+
+
 
     System.arraycopy(output, 0, arr, 0, arr.length);
 }
@@ -507,4 +531,4 @@ private void shellSort(int[] arr) {
     }
 }
 
-} //gg
+}
