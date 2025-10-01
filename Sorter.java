@@ -99,7 +99,7 @@ public class Sorter {
             return;
         }
         
-        System.out.println("Исходный массив: " + Arrays.toString(array));
+        // System.out.println("Исходный массив: " + Arrays.toString(array));
         
         int[] arrayToSort = Arrays.copyOf(array, array.length);
         
@@ -109,7 +109,7 @@ public class Sorter {
         
         long duration = (endTime - startTime);
         
-        System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+        // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
         System.out.println("Время сортировки: " + duration + " наносекунд (" + 
                           (duration / 1_000_000.0) + " миллисекунд)");
         
@@ -123,7 +123,7 @@ public class Sorter {
             return;
         }
         
-        System.out.println("Исходный массив: " + Arrays.toString(array));
+        // System.out.println("Исходный массив: " + Arrays.toString(array));
         
         int[] arrayToSort = Arrays.copyOf(array, array.length);
         
@@ -133,7 +133,7 @@ public class Sorter {
         
         long duration = (endTime - startTime);
         
-        System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+        // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
         System.out.println("Время сортировки: " + duration + " наносекунд (" + 
                           (duration / 1_000_000.0) + " миллисекунд)");
         
@@ -147,7 +147,7 @@ public class Sorter {
             return;
         }
         
-        System.out.println("Исходный массив: " + Arrays.toString(array));
+        // System.out.println("Исходный массив: " + Arrays.toString(array));
         
         int[] arrayToSort = Arrays.copyOf(array, array.length);
         
@@ -157,7 +157,7 @@ public class Sorter {
         
         long duration = (endTime - startTime);
         
-        System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+        // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
         System.out.println("Время сортировки: " + duration + " наносекунд (" + 
                           (duration / 1_000_000.0) + " миллисекунд)");
         
@@ -171,7 +171,7 @@ public class Sorter {
             return;
         }
         
-        System.out.println("Исходный массив: " + Arrays.toString(array));
+        // System.out.println("Исходный массив: " + Arrays.toString(array));
         
         int[] arrayToSort = Arrays.copyOf(array, array.length);
         
@@ -181,7 +181,7 @@ public class Sorter {
         
         long duration = (endTime - startTime);
         
-        System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+        // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
         System.out.println("Время сортировки: " + duration + " наносекунд (" + 
                           (duration / 1_000_000.0) + " миллисекунд)");
         
@@ -195,7 +195,7 @@ public class Sorter {
             return;
         }
         
-        System.out.println("Исходный массив: " + Arrays.toString(array));
+        // System.out.println("Исходный массив: " + Arrays.toString(array));
         
         int[] arrayToSort = Arrays.copyOf(array, array.length);
         
@@ -205,7 +205,7 @@ public class Sorter {
         
         long duration = (endTime - startTime);
         
-        System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+        // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
         System.out.println("Время сортировки: " + duration + " наносекунд (" + 
                           (duration / 1_000_000.0) + " миллисекунд)");
         
@@ -219,7 +219,7 @@ public class Sorter {
             return;
         }
         
-        System.out.println("Исходный массив: " + Arrays.toString(array));
+        // System.out.println("Исходный массив: " + Arrays.toString(array));
         
         int[] arrayToSort = Arrays.copyOf(array, array.length);
         
@@ -229,7 +229,7 @@ public class Sorter {
         
         long duration = (endTime - startTime);
         
-        System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+        // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
         System.out.println("Время сортировки: " + duration + " наносекунд (" + 
                           (duration / 1_000_000.0) + " миллисекунд)");
         
@@ -243,7 +243,7 @@ public class Sorter {
         return;
     }
 
-    System.out.println("Исходный массив: " + Arrays.toString(array));
+    // System.out.println("Исходный массив: " + Arrays.toString(array));
 
     int[] arrayToSort = Arrays.copyOf(array, array.length);
 
@@ -253,7 +253,7 @@ public class Sorter {
 
     long duration = (endTime - startTime);
 
-    System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+    // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
     System.out.println("Время сортировки: " + duration + " наносекунд (" +
             (duration / 1_000_000.0) + " миллисекунд)");
 
@@ -266,24 +266,45 @@ public class Sorter {
         return;
     }
 
-    System.out.println("Исходный массив: " + Arrays.toString(array));
+    // System.out.println("Исходный массив: " + Arrays.toString(array));
 
     int[] arrayToSort = Arrays.copyOf(array, array.length);
-
+    
     long startTime = System.nanoTime();
     shellSort(arrayToSort);
     long endTime = System.nanoTime();
 
     long duration = (endTime - startTime);
 
-    System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+    // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
     System.out.println("Время сортировки: " + duration + " наносекунд (" +
             (duration / 1_000_000.0) + " миллисекунд)");
 
     array = arrayToSort;
     }
   
+public void performShellknytSort() {
+    if (array.length == 0) {
+        System.out.println("Массив пуст. Сначала добавьте элементы.");
+        return;
+    }
 
+    // System.out.println("Исходный массив: " + Arrays.toString(array));
+
+    int[] arrayToSort = Arrays.copyOf(array, array.length);
+    
+    long startTime = System.nanoTime();
+    shellknytSort(arrayToSort);
+    long endTime = System.nanoTime();
+
+    long duration = (endTime - startTime);
+
+    // System.out.println("Отсортированный массив: " + Arrays.toString(arrayToSort));
+    System.out.println("Время сортировки: " + duration + " наносекунд (" +
+            (duration / 1_000_000.0) + " миллисекунд)");
+
+    array = arrayToSort;
+    }
 
     private void bubbleSort(int[] arr) {
         int n = arr.length;
@@ -486,28 +507,28 @@ private void countingSort(int[] arr) {
     // value = 3 -> count [3 - 3]++ -> count[0] = 1 ...
     // count = {2, 1, 1}
 
-    for (int i = 1; i < count.length; i++) { // Итоговая позиция элемента в конечном массиве. Начинаем с 1, потому что минимальные уже заполнены
+    for (int i = 1; i < count.length; i++) { // До какой позиции стоят все элементы. Начинаем с 1, потому что 0 уже заполнены
         count[i] += count[i - 1];
     }
 
     // count = {2, 3, 4}
 
     for (int i = arr.length - 1; i >= 0; i--) { // Перебираем исходный с конца для устойчивости
-        output[count[arr[i] - min] - 1] = arr[i]; // На какую позицию вставляем в выходной
-        count[arr[i] - min]--; // Уменьшаем значение в count, чтобы копии заняли правильные позиции
+        int value = arr [i]; // Текущее число
+        int idxInCount = value - min; // Его индекс в count
+        int posInOutput = count[idxInCount] - 1; // Позиция в output
+        output[posInOutput] = value; // Ставим число в результат
+        count[idxInCount]--; // Двигаем указатель до следующего такого же числа
     }
 
     // Пример:
 
-    //  i = 3 -> arr[3] = 4
-    //  count [4 - 3] = count[1] = 3
-    //  count [3 - 1] = output[2] = 4
+    //  i = 3 -> value = arr[3] = 4
+    //  isxInCount = 4 - 3 = 1
+    //  posInOutput = count [1] - 1  = 3 - 1 = 2
+    //  output[2] = 4 (output = {_,_,4,_})
     //  count [1]-- -> count = {2, 2, 4}
 
-    //  i = 2 -> arr[2] = 3
-    //  count [3 - 3] = count[0] = 2
-    //  count [2 - 1] = output[1] = 3
-    //  count [0]-- -> count = {1, 2, 4}
 
 
 
@@ -528,6 +549,28 @@ private void shellSort(int[] arr) {
             }
             arr[j] = temp;
         }
+    }
+}
+
+private void shellknytSort(int[] arr) {
+    int n = arr.length;
+
+    int gap = 1;
+    while (gap < n / 3 ){
+    gap = 3 * gap + 1;
+    }
+    while (gap >= 1){
+        for (int i = gap; i < n; i++) {
+            int temp = arr[i];
+            int j = i;
+
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap];
+                j -= gap;
+            }
+            arr[j] = temp;
+        }
+        gap = gap / 3;
     }
 }
 
